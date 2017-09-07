@@ -7,7 +7,7 @@ use yii\helpers\Html;
 //$this->title = 'Categories list';
 ?>
 
-<h1>Привет!</h1>
+<h1>Привет со второго раза!</h1>
 <section id="slider"><!--slider-->
     <div class="container">
         <div class="row">
