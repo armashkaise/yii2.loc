@@ -2,8 +2,10 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\OrderItems;
 use Yii;
 use app\modules\admin\models\Order;
+
 use yii\data\ActiveDataProvider;
 use app\modules\admin\controllers\AppAdminController;
 use yii\web\NotFoundHttpException;
@@ -61,6 +63,11 @@ class OrderController extends AppAdminController
      */
     public function actionView($id)
     {
+//        $orderItems = OrderItems::find($id);
+        $model = $this->findModel($id);
+
+//        return $this->render('view', compact('model', 'orderItems'));
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);

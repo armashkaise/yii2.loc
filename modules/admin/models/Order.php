@@ -24,6 +24,10 @@ class Order extends \yii\db\ActiveRecord
         ];
     }
 
+    public function getOrderItems(){
+        return $this->hasMany(OrderItems::className(), ['order_id' => 'id']);
+    }
+
     public function attributeLabels()
     {
         return [
@@ -33,7 +37,7 @@ class Order extends \yii\db\ActiveRecord
             'qty' => 'Количество',
             'sum' => 'Сумма',
             'status' => 'Статус',
-            'name' => 'Название',
+            'name' => 'Имя',
             'email' => 'Email',
             'phone' => 'Телефон',
             'address' => 'Адрес',

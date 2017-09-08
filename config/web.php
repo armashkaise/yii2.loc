@@ -71,6 +71,9 @@ $config = [
 
                 'category/<id:\d+>/page/<page:\d+>/' => 'category/view',
                 'category/<id:\d+>' => 'category/view',
+
+                'admin/order' => 'admin/order/index',
+                'admin/order/<id:\d+>/' => 'admin/order/view',
             ],
         ],
 

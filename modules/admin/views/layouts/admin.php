@@ -68,7 +68,7 @@ ltAppAsset::register($this);
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="<?php echo \yii\helpers\Url::home()?>"><?php echo Html::img("@web/images/home/logo.png", ['alt' => 'E-SHOPPER'])?></a>
+                            <a href="<?php echo \yii\helpers\Url::to(['order/index'])?>"><?php echo Html::img("@web/images/home/logo.png", ['alt' => 'E-SHOPPER'])?></a>
                         </div>
                         <div class="btn-group pull-right">
                             <div class="btn-group">
@@ -127,24 +127,18 @@ ltAppAsset::register($this);
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="index.html" class="active">Home</a></li>
-                                <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                                <li><a href="<?php echo \yii\helpers\Url::home()?>" class="active">Главная</a></li>
+                                <li class="dropdown"><a href="#">Категории<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-                                        <li><a href="product-details.html">Product Details</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="<?php echo \yii\helpers\Url::to(['/admin/category/index'])?>">Список категорий</a></li>
+                                        <li><a href="#">Добавить категорию</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown"><a href="#">Товары<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-                                        <li><a href="blog-single.html">Blog Single</a></li>
+                                        <li><a href="<?php echo \yii\helpers\Url::to(['/product/index'])?>">Список товаров</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="contact-us.html">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -162,6 +156,13 @@ ltAppAsset::register($this);
     </header><!--/header-->
 
 <div class="container">
+    <?php if (Yii::$app->session->hasFlash('success')): ?>
+        <div class="alert alert-success alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" area-label="Close">
+                <span area-hidden="true">&times</span></button>
+            <?php echo Yii::$app->session->getFlash('success');?>
+        </div>
+    <?php endif; ?>
     <?= $content; ?>
 </div>
 
